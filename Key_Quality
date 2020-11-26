@@ -1,0 +1,29 @@
+Briefly discuss what key quality means, and describe one way of writing a
+program that checks key quality. Write this as a comment to the submission. Keep
+it short - one or two paragraphs should be enough.
+
+Key quality primarily means how long the key is and how sophisticated the method
+of key generation is. For the first characteristic - length - keys can easily be
+checked for quality here by simply ensuring that the key is long enough so that
+brute force attacks - by simply generating and testing all keys - is
+computationally infeasible. As computers continue to get faster, the minimum
+key length needed to deter brute force attacks continues to increase. In general
+a good key length by today's standards is at least 128 bits. For the second
+characteristic - sophistication of key generation - this simply means that there
+is no detectable pattern in how keys are generated. In essence, each key should
+appear to be random so that cryptanalysis may not be used to find some pattern
+between keys and then form an attack that exploits that known pattern.
+	Given these characteristics about keys and their quality, a program may be
+written in the following way. Firstly, the program will check the length of the
+check. A good length may be determined by some predetermined value - such as 128
+bits - to check against. Secondly, the program could do a rough check that the
+keys have no patterns by counting the amounts of 1's and 0's in the keys and
+making sure that there is an even split of 1 and 0 bits. Additionally, an
+analysis can be done on the probability of a 1 or 0 bit appearing at each
+individual location within a key. This would mean tallying the number of 1's and
+0's in the first bit of each key, the second bit, the third bit and so on and
+making sure that at each index of a key, the likelihood of a 1 or 0 occurring is
+also an even split. This is necessary because while a key like 1010101010 has an
+equal number of 1's and 0's, if all the keys have that pattern that would not be
+good. Of course, one key with 10101010 and one key with 01010101 would easily
+bypass this check, but it is a start.
