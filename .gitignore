@@ -1,1 +1,5 @@
 *.jar
+CA_private.pem
+user_private.pem
+CA.srl
+CA_public.pem
